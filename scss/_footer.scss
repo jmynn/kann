@@ -1,0 +1,102 @@
+//?------------functions and mixins----------
+@function rem($value) {
+	$result: $value / 14 + 'rem';
+	@return $result;
+}
+@mixin fz-rem($value) {
+	#{font-size}: #{rem($value)};
+}
+//?------------functions and mixins----------
+// --------переменные--------
+$black: #1a1818;
+$black-25: #1a181840;
+$gray: #b3b3b3;
+$white: #fff;
+// --------------------------
+.footer {
+    max-width: 1476px;
+	padding: 0 18px;
+    margin: 0 auto;
+    width: 100%;
+    border-top: 1px solid $black;
+    // .footer__row
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        &:first-child{
+            margin-top: 70px;
+            .footer__column{
+                flex: 0 0 20%;
+            }
+        }
+        &:last-child{
+            display: flex;
+            justify-content: space-between;
+            color: $gray;
+            .footer__column{
+                &:first-child{
+                    display: flex;
+                }
+                &:last-child{
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+    // .footer__list
+    &__list {
+        @include fz-rem(14);
+        line-height: 107%;
+        letter-spacing: 0.3px;
+        text-transform: lowercase;
+        margin-bottom: 115px; 
+        li{
+            &:not(:last-child){
+                margin-bottom: 8px;
+            }
+            &:hover{
+                cursor: pointer;
+                opacity: .8;
+            }
+        }
+        li:first-child{
+            margin-bottom: 15px;
+        }
+    }
+    // .footer__item
+    &__item {
+    }
+    // .footer__column
+    &__column {
+    }
+    // .footer__copyright
+    &__copyright {
+        margin-right: 20px;
+    }
+    // .footer__cookies
+    &__cookies {
+    }
+    // .footer__author
+    &__author {
+        a{
+            color: $gray;
+        }
+    }
+}
+/*//*--------------media---------------*/
+@media (max-width: 1199px){
+    .footer__list{
+        @include fz-rem(16);
+        margin-bottom: 80px;
+    }
+    .footer__row:first-child{margin-top: 40px;}
+}
+@media (max-width: 767px){
+    .footer__row:first-child{
+        flex-wrap: wrap;
+        .footer__column{flex: 0 0 50%;}
+    }
+    .footer__list{
+        margin-bottom: 30px;
+    }
+}
