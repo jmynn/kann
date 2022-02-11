@@ -96,6 +96,10 @@ $white: #fff;
         flex-wrap: wrap;
         .footer__column{flex: 0 0 50%;}
     }
+    .footer__row:last-child{
+        flex-wrap: wrap;
+        .footer__column{flex: 0 0 100%;}
+    }
     .footer__list{
         margin-bottom: 30px;
     }
